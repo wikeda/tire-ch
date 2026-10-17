@@ -1,5 +1,5 @@
 import {renderCar} from './art.js';
-import {FORMS} from './engine2.js';
+import {FORMS} from './engine2.js?v=2.2';
 export function art(st,id,broken=false){
  if(st<4)return renderCar(st,'sport',1,broken);
  let f=FORMS[id]||FORMS.comet,c=f.color,k=f.kind;
