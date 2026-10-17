@@ -3,3 +3,4 @@
 
 #toast{bottom:auto;top:18px;max-width:min(680px,85vw);box-shadow:0 8px 36px #0008;line-height:1.6}
 .care-effect{position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:23px;font-weight:800;color:#f7d885;animation:care-float 1.5s ease-out forwards;pointer-events:none;text-shadow:0 3px 10px #0008}@keyframes care-float{0%{opacity:0;transform:translate(-50%,20px) scale(.7)}25%{opacity:1;transform:translate(-50%,0) scale(1.15)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-15px)}}
+.wire-blue{border-color:#8bc9ff}.wire-yellow{border-color:#f1d77b}.wire-pink{border-color:#e8a0cb}.wire-guide{background:#111b30;padding:12px;border-radius:10px}.wires{display:flex;flex-wrap:wrap;gap:5px}
