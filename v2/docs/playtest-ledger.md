@@ -73,3 +73,8 @@ Diagnosed and read the visible order: yellow triangle, pink square, blue circle.
 Fueled, snacked, and took rapid risky ridge choices to another actual breakdown: health 0, energy 0, parts 8. Paid five parts and verified health 100, energy 70, heat 20, parts 3. Immediately started forest and returned successfully. Episode 4's resource-choice improvement passed: paid repair now has a useful advantage over manual 65/35 recovery. Adult form and collection survived both breakdowns. No further change needed.
 
 Updated count: 16 / 25 focused episodes. Three adult generations observed across the reset, including one strict six-minute no-bonus generation. Mobile and the interrupted import remain unverified.
+
+### 17. Stale-tab block and resumed play — build 2.7, 17:32 UTC
+Opened a second tab and washed there. Original tab correctly disabled feed and next generation and explained that care/autosave had paused: episode 13's unsavable-care bug was fixed. Closed second tab and loaded the latest save. Wash changes persisted (clean 58→88), rest worked (energy 54→64), and a town calm choice followed by early return worked. Regression: sound, FX, and next-generation buttons remained disabled after successful sync, even after ten seconds and the outing. Reported that all generically disabled controls must be re-enabled when the stale state clears while retaining their individual eligibility checks. Parent preparing fix; live retest pending.
+
+Updated count: 17 / 25 focused episodes.
