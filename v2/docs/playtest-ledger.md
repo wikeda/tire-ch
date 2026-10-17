@@ -103,7 +103,7 @@ Fed repeatedly at ordinary cooldown intervals, reaching full energy and varied o
 
 Updated count: 23 / 25 focused episodes.
 
-## Retest cross-reference (through episode 23)
+## Retest cross-reference (through episode 25)
 - Reward forecasts and cache versioning (1): verified in 2 and 9.
 - Intermediate silhouettes and route identity/order (1–2): verified in 7 and later journeys.
 - Heat forecasts and final milestone (3): verified in 12 and 14.
@@ -114,7 +114,7 @@ Updated count: 23 / 25 focused episodes.
 - Unsavable stale-tab actions (13): blocked in 17; sync-control regression fixed and verified in 18.
 - Journey-record star label and adult snack copy (13–14): verified in 18.
 - Timing mode/scoring clarity (20): verified in 22.
-- Adult road/timing growth promises (23): awaiting live 2.11 retest.
+- Adult road/timing growth promises (23): verified in 24 on live 2.11.
 
 ### 24. Adult practice reward and honest road forecasts — builds 2.10–2.11, 17:42–17:44 UTC
 Completed adult slow practice at 6/6 using the same disclosed visible-cursor targeting as episode 22. Parts increased 15→18; the result stated mood +10 instead of growth. A fresh cache-key navigation timed out at the tool boundary, but inspection confirmed it had loaded successfully. Live 2.11's practice instructions now matched the adult reward. Began ridge, verified the bold option says growth is already complete, took it, returned early, and rested. Ended health 100, energy 42, heat 0, parts 18. Episode 23's misleading adult-growth promises are fixed. No additional change requested.
