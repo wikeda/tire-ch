@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {createGame,advance,care,stage,route,finalForm,newGeneration,restore,STAGES} from '../src/engine.js';
+import {createGame,advance,care,validSave,stage,route,finalForm,newGeneration,restore,STAGES} from '../src/engine.js';
 test('starts as tire and naturally gains chassis at 90 seconds',()=>{let s=createGame(1000);assert.equal(stage(s),0);advance(s,91000);assert.equal(stage(s),1)});
 test('snack accelerates but cannot spam',()=>{let s=createGame(1000);assert.equal(care(s,'snack',1000).ok,true);let g=s.growth;assert.equal(care(s,'snack',1001).ok,false);assert.ok(s.growth-g<0.01)});
 test('care shapes route',()=>{let s=createGame(0);care(s,'drive',0);assert.equal(route(s),'sport');care(s,'wash',10000);care(s,'wash',20000);assert.equal(route(s),'luxury')});
@@ -11,3 +11,8 @@ test('offline and stepped elapsed produce comparable decay',()=>{let a=createGam
 test('offline evolution locks rank before later neglect breakdown',()=>{let a=createGame(0),b=createGame(0);a.careCount=b.careCount=18;advance(a,24*3600000);for(let i=1;i<=1440;i++)advance(b,i*60000);assert.equal(a.final.rank,b.final.rank);assert.equal(a.final.rank,3)});
 test('restore rejects malformed final and infinite counters safely',()=>{let s=createGame(0);s.growth=300;s.final={id:['sport-1']};let out=restore(JSON.stringify(s),0);assert.equal(out.growth,300);assert.equal(out.final,null);s.personality.sport='Infinity';s.generation='Infinity';out=restore(JSON.stringify(s),0);assert.ok(Number.isFinite(out.personality.sport));assert.ok(Number.isFinite(out.generation));});
 test('premature final ignored; finished final restores collection',()=>{let s=createGame(0);s.final={id:'luxury-3'};assert.equal(restore(JSON.stringify(s),0).final,null);s.growth=2700;assert.ok(restore(JSON.stringify(s),0).collection.includes('luxury-3'))});
+test('all nine final forms are reachable through care',()=>{for(let [r,a]of [['sport','drive'],['luxury','wash'],['adventure','explore']])for(let [rank,count]of [[1,1],[2,7],[3,18]]){let s=createGame(0);for(let i=0;i<count;i++)assert.equal(care(s,a,i*8000).ok,true);advance(s,2700000);assert.equal(s.final.id,`${r}-${rank}`)}});
+test('locked final never changes through later care',()=>{let s=createGame(0);advance(s,2700000);let id=s.final.id;for(let i=0;i<30;i++)care(s,'wash',2700000+i*8000);assert.equal(s.final.id,id)});
+test('offline completion before later same-minute death is preserved',()=>{let s=createGame(0);s.growth=2690;s.needs.energy=0;s.needs.health=1;advance(s,60000);assert.equal(s.final?.id,'sport-1');assert.equal(s.broken,true)});
+
+test("import validation rejects corrupt counters and final objects",()=>{let s=createGame(0);assert.equal(validSave(s),true);s.final={id:["sport-1"]};assert.equal(validSave(s),false);s.final=null;s.careCount="Infinity";assert.equal(validSave(s),false);});
