@@ -6,3 +6,6 @@
 .wire-blue{border-color:#8bc9ff}.wire-yellow{border-color:#f1d77b}.wire-pink{border-color:#e8a0cb}.wire-guide{background:#111b30;padding:12px;border-radius:10px}.wires{display:flex;flex-wrap:wrap;gap:5px}
 
 .timing-track{height:42px;position:relative;background:#14182b;border-radius:12px;margin:16px 0;overflow:hidden}.timing-target{position:absolute;left:41%;width:18%;height:100%;background:#79c554}.slow .timing-target{left:35%;width:30%}#timing-cursor{position:absolute;top:0;height:100%;width:5px;background:white;box-shadow:0 0 12px white}#practice-tap{width:100%;min-height:58px}#practice-panel button{margin-bottom:8px}
+/* Stable practice geometry keeps the target from jumping as feedback changes. */
+#practice-panel{min-height:380px;overflow-anchor:none}#practice-score{min-height:24px}#practice-active{min-height:190px}.journal{min-height:230px}#journal{min-height:135px}
+.timing-good{position:absolute;left:31%;width:38%;height:100%;background:#385238}.slow .timing-good{left:23%;width:54%}.timing-target{border-left:2px solid #bdff61;border-right:2px solid #bdff61;box-sizing:border-box}

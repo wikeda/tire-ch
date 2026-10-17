@@ -78,3 +78,19 @@ Updated count: 16 / 25 focused episodes. Three adult generations observed across
 Opened a second tab and washed there. Original tab correctly disabled feed and next generation and explained that care/autosave had paused: episode 13's unsavable-care bug was fixed. Closed second tab and loaded the latest save. Wash changes persisted (clean 58→88), rest worked (energy 54→64), and a town calm choice followed by early return worked. Regression: sound, FX, and next-generation buttons remained disabled after successful sync, even after ten seconds and the outing. Reported that all generically disabled controls must be re-enabled when the stale state clears while retaining their individual eligibility checks. Parent preparing fix; live retest pending.
 
 Updated count: 17 / 25 focused episodes.
+
+### 18. Sync recovery, honest adult labels, and next generation — build 2.8, 17:34 UTC
+Opened another tab, rested, closed it, and synchronized the original with the latest-save button. Sound, FX, and next generation were enabled again; toggled FX and successfully started GEN 03 through the confirmation. Episode 17 regression passed. Adult snack now explicitly states that growth is complete and heat increases by 24 (episode 14 fixed). Stars now say journey record (episode 13 presentation improvement verified). Taxi and bathtub remained collected. Minor cosmetic finding: previous-generation reaction effects briefly overlaid the new tire; requested clearing transient effects on generation change.
+
+### 19. First normal timing game — build 2.8, 17:34–17:36 UTC
+Started practice on the new GEN 03, then paused interaction during context recovery while its real clock continued. Completed one mouse tap and two Enter taps: scores 0, 1, 0, total 1/6. Two misses added 20 heat, no reward; best score and 15-second cooldown were clear. The visible gauge and immediate miss/+1 feedback add useful activity during passive growth. Cloud screenshot/input latency prevents a calibrated judgment of human reflex difficulty. Screenshot comparisons showed the gauge moving vertically from y416 to y307 after interaction, making tracking less comfortable; reported possible scroll/layout stabilization. Slow-mode comparison next.
+
+Updated count: 19 / 25 focused episodes. Screenshots were inspected in tool output; no retained screenshot files are claimed.
+
+### 20. Slow mode and keyboard comparison — build 2.8, 17:37 UTC
+Rested after the first game's heat, then completed slow mode with three native Enter presses. Scores 1, 0, 2 gave 3/6, best updated, one miss added 10 heat and no reward. The broader target was visibly obvious and a perfect beat felt satisfying. No difficulty change is justified from latency-limited cloud play. Native Enter kept the gauge's vertical position stable, suggesting episode 19's jump was at least partly locator auto-scroll rather than ordinary player layout instability. Recommended explicitly labeling active slow mode and marking the central +2 zone so the scoring can be learned visually.
+
+### 21. Partial practice, cancellation, care, and reload — build 2.8, 17:37–17:38 UTC
+Started another slow practice, made one missed tap, then chose to end practice. Immediately fed and reloaded. Energy 74, heat 15, parts 3 and best 3/6 persisted; the diary explained the spent energy and advised rest. Care and roads were available again; practice retained its remaining 14-second cooldown and feed retained its four-second cooldown. No partial reward or stuck disabled controls. Cancellation is understandable and safe; no change requested.
+
+Updated count: 21 / 25 focused episodes.
