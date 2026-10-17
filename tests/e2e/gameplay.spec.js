@@ -21,7 +21,7 @@ test('offline growth adds chassis and preserves save',async({page})=>{
 test('neglect breaks, care disabled, repair resumes growth',async({page},info)=>{
  await seed(page,{last:Date.now()-6*3600000});await page.goto('/');await expect(page.locator('#repair-panel')).toBeVisible();
  await expect(page.getByRole('button',{name:'ごはん',exact:true})).toBeDisabled();const before=await stored(page);expect(before.broken).toBe(true);
- await page.getByRole('button',{name:'🔧 修理して復活'}).click();expect((await stored(page)).broken).toBe(false);await expect(page.locator('#repair-panel')).toBeHidden();
+ await page.getByRole('button',{name:'🔧 修理して復活'}).click();expect((await stored(page)).broken).toBe(false);await expect(page.locator('#repair-panel')).toBeHidden();await expect(page.locator('#journal')).toContainText('修理完了！相棒が復活しました。');
  await page.screenshot({path:info.outputPath('repaired.png'),fullPage:true});
 });
 test('all routes complete, collection retained on new generation',async({page},info)=>{
@@ -34,3 +34,12 @@ test('all routes complete, collection retained on new generation',async({page},i
 test('malformed storage remains usable',async({page})=>{await page.addInitScript(k=>localStorage.setItem(k,'{bad'),KEY);await page.goto('/');await expect(page.locator('#welcome')).toBeVisible();await expect(page.locator('#start')).toBeEnabled();});
 test('storage unavailable gives honest warning',async({page})=>{await page.addInitScript(()=>{Storage.prototype.setItem=function(){throw new DOMException('Unavailable','QuotaExceededError')}});await page.goto('/');await page.locator('#start').click();await expect(page.locator('#save-status')).toContainText('保存できません');await page.getByRole('button',{name:'ごはん',exact:true}).click();await expect(page.locator('#toast')).toContainText('大成功');});
 test('clock backwards does not grant growth or lose collection',async({page})=>{await seed(page,{growth:30,last:Date.now()+3600000,collection:['sport-1']});await page.goto('/');const s=await stored(page);expect(s.growth).toBeLessThan(40);expect(s.collection).toEqual(['sport-1']);});
+test('imported save replaces journal with matching generation and care count',async({page})=>{
+ await page.goto('/');await page.locator('#start').click();
+ const imported={...createGame(Date.now()),tutorial:true,generation:4,careCount:12};
+ page.once('dialog',dialog=>dialog.accept());
+ await page.locator('#import-save').setInputFiles({name:'tire-ch-test-save.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});
+ await expect(page.locator('#journal')).toContainText('第4世代 / お世話12回');
+ await expect(page.locator('#journal')).toContainText('セーブを読み込みました');
+ const s=await stored(page);expect(s.generation).toBe(4);expect(s.careCount).toBe(12);
+});
