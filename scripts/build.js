@@ -1,0 +1,1 @@
+import{mkdir,copyFile,cp,rm}from'node:fs/promises';await rm('dist',{recursive:true,force:true});await mkdir('dist');for(let f of ['index.html','style.css'])await copyFile(f,`dist/${f}`);await cp('src','dist/src',{recursive:true});await copyFile('.nojekyll','dist/.nojekyll');console.log('Static build ready: dist');

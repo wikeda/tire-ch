@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createGame,advance,care,stage,route,finalForm,newGeneration,restore,STAGES} from '../src/engine.js';
+test('starts as tire and naturally gains chassis at 90 seconds',()=>{let s=createGame(1000);assert.equal(stage(s),0);advance(s,91000);assert.equal(stage(s),1)});
+test('snack accelerates but cannot spam',()=>{let s=createGame(1000);assert.equal(care(s,'snack',1000).ok,true);let g=s.growth;assert.equal(care(s,'snack',1001).ok,false);assert.ok(s.growth-g<0.01)});
+test('care shapes route',()=>{let s=createGame(0);care(s,'drive',0);assert.equal(route(s),'sport');care(s,'wash',10000);care(s,'wash',20000);assert.equal(route(s),'luxury')});
+test('neglect breaks; repair recovers',()=>{let s=createGame(0);advance(s,24*3600000);assert.equal(s.broken,true);assert.equal(care(s,'drive',24*3600000).ok,false);assert.equal(care(s,'repair',24*3600000).ok,true);assert.equal(s.broken,false)});
+test('backwards clock cannot duplicate growth',()=>{let s=createGame(100000);advance(s,110000);let g=s.growth;advance(s,90000);advance(s,110000);assert.ok(s.growth-g<0.01)});
+test('final evolution records collection and generations preserve it',()=>{let s=createGame(0);s.growth=STAGES[4];advance(s,0);assert.equal(s.collection.length,1);let form=finalForm(s);let n=newGeneration(s,100);assert.equal(stage(n),0);assert.equal(n.collection[0],form.id);assert.equal(n.generation,2)});
+test('invalid save returns safe new game',()=>{assert.equal(restore('{bad',3).generation,1);assert.equal(restore('{"version":1,"growth":"evil"}',3).growth,0)});
+test('offline and stepped elapsed produce comparable decay',()=>{let a=createGame(0),b=createGame(0);advance(a,3600000);for(let i=1;i<=60;i++)advance(b,i*60000);assert.ok(Math.abs(a.needs.energy-b.needs.energy)<.01)});
+test('offline evolution locks rank before later neglect breakdown',()=>{let a=createGame(0),b=createGame(0);a.careCount=b.careCount=18;advance(a,24*3600000);for(let i=1;i<=1440;i++)advance(b,i*60000);assert.equal(a.final.rank,b.final.rank);assert.equal(a.final.rank,3)});
+test('restore rejects malformed final and infinite counters safely',()=>{let s=createGame(0);s.growth=300;s.final={id:['sport-1']};let out=restore(JSON.stringify(s),0);assert.equal(out.growth,300);assert.equal(out.final,null);s.personality.sport='Infinity';s.generation='Infinity';out=restore(JSON.stringify(s),0);assert.ok(Number.isFinite(out.personality.sport));assert.ok(Number.isFinite(out.generation));});
+test('premature final ignored; finished final restores collection',()=>{let s=createGame(0);s.final={id:'luxury-3'};assert.equal(restore(JSON.stringify(s),0).final,null);s.growth=2700;assert.ok(restore(JSON.stringify(s),0).collection.includes('luxury-3'))});
