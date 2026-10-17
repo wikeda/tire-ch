@@ -94,3 +94,35 @@ Rested after the first game's heat, then completed slow mode with three native E
 Started another slow practice, made one missed tap, then chose to end practice. Immediately fed and reloaded. Energy 74, heat 15, parts 3 and best 3/6 persisted; the diary explained the spent energy and advised rest. Care and roads were available again; practice retained its remaining 14-second cooldown and feed retained its four-second cooldown. No partial reward or stuck disabled controls. Cancellation is understandable and safe; no change requested.
 
 Updated count: 21 / 25 focused episodes.
+
+### 22. Achievable reward and scoring-guide retest — builds 2.8–2.10, 17:38–17:39 UTC
+Completed slow mode with a perfect 6/6. For this reward check, automation read only the rendered cursor's inline left percentage, then sent native Enter near the visible center; it did not read hidden game state or manipulate time. Parts increased 3→6, and the toast/diary explicitly awarded growth +12 and parts +3. Best 6/6 survived reload. This verifies reward behavior, not human reflex difficulty. On live 2.10, started another slow practice and visually verified the new mode label and separate +2 center/+1 outer scoring zones, then cancelled. Episode 20 guidance improvement passed.
+
+### 23. Mixed-care discovery and adult ridge continuation — build 2.10, 17:39–17:41 UTC
+Fed repeatedly at ordinary cooldown intervals, reaching full energy and varied overfeeding stories, then a bread-scent hint. Took ridge's steep-slope and fog choices as adulthood approached. Natural elapsed time plus the earlier +12 practice bonus and two +8 choices produced a new pink 流星スプリンター at 17:40:17, rather than the hoped-for food-themed form. This is a real divergent outcome, not a guaranteed recipe. Continued delivery, cooling wind, generosity, and scenic homecoming; washed and reloaded. Ended health 100, energy 71, clean 86, mood 100, heat 0, parts 15. Collection retained three forms in this profile, four adult forms observed overall including the pre-reset submarine. New finding: adult road choices still advertised capped growth (+12 etc.). Parent fixed the adult preview copy for 2.11; retest pending. A couple of tool input timeouts were checked against the UI before retrying; no duplicate actions assumed.
+
+Updated count: 23 / 25 focused episodes.
+
+## Retest cross-reference (through episode 23)
+- Reward forecasts and cache versioning (1): verified in 2 and 9.
+- Intermediate silhouettes and route identity/order (1–2): verified in 7 and later journeys.
+- Heat forecasts and final milestone (3): verified in 12 and 14.
+- Adult recovery copy and meaningful paid repair (4): verified in 14–16.
+- Varied care responses and animation (5): verified in 12–13 and 23.
+- Keyboard choice focus (6): verified in 11.
+- Diary persistence and forest nouns (7–8): verified in 9.
+- Unsavable stale-tab actions (13): blocked in 17; sync-control regression fixed and verified in 18.
+- Journey-record star label and adult snack copy (13–14): verified in 18.
+- Timing mode/scoring clarity (20): verified in 22.
+- Adult road/timing growth promises (23): awaiting live 2.11 retest.
+
+### 24. Adult practice reward and honest road forecasts — builds 2.10–2.11, 17:42–17:44 UTC
+Completed adult slow practice at 6/6 using the same disclosed visible-cursor targeting as episode 22. Parts increased 15→18; the result stated mood +10 instead of growth. A fresh cache-key navigation timed out at the tool boundary, but inspection confirmed it had loaded successfully. Live 2.11's practice instructions now matched the adult reward. Began ridge, verified the bold option says growth is already complete, took it, returned early, and rested. Ended health 100, energy 42, heat 0, parts 18. Episode 23's misleading adult-growth promises are fixed. No additional change requested.
+
+### 25. Final integrated preview journey — build 2.11, 17:44–17:45 UTC
+Started GEN 04 through the normal confirmation. Three collected forms remained; old transient care effects did not overlay the fresh tire. Completed a mixed forest trip: find the voice, splash through the stream, escort the acorn robot, mushroom path, rainbow fruit, and nut souvenir. Used keyboard for the first choice and verified focus moved to the next scene. Reloaded mid-trip and resumed at 3/6 with the same encounter. Washed and rested after completion, then reloaded again. Ended stage 3, energy 55, clean 53, mood 100, health 100, heat 0, parts 11, with a water-reflection personality hint. The terrain costs made post-trip washing useful; the evolved skeletal silhouette remained distinct from adulthood. Journey, care cooldowns, diary, collection, and best practice score persisted. No new blocking finding.
+
+## Final preview assessment
+Completed **25 / 25 focused actual UI gameplay episodes**, including continued-save episodes and explicit failure/recovery paths. These are not 25 complete generations. Four adult forms were observed across the environment reset; one generation was a continuously observed six-minute no-growth-bonus experience. The final game offers more meaningful tradeoffs, understandable recovery, more distinctive route consequences, and an optional active practice loop. Reveals remain the strongest delight; the care-only middle is intentionally calm, and repeated journeys eventually expose their small scene pool.
+
+Known evidence limits: cloud UI latency limits reflex-difficulty conclusions. Physical-device/mobile hands-on testing was unavailable; separate automated mobile regressions are not counted here. The interrupted actual file-import attempt remains unverified; parent reports separate synthetic import automation passed. Screenshots were visually inspected in tool outputs, but no retained original CUA screenshot files are claimed. Production promotion smoke will be recorded separately and will not inflate the 25-episode count.

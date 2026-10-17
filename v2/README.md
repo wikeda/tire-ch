@@ -1,8 +1,8 @@
-# TIRE CH 2 — development preview
+# TIRE CH 2 — runtime
 
 A tiny tire grows through time, care and short road stories into an unexpected vehicle. All artwork is original SVG. No accounts, payments, analytics or backend.
 
-The stable v1 game at the repository root remains unchanged during this preview. The original localStorage key (`tire-ch-v1`) is preserved; v2 uses its own key. `v1/` inside this preview is a playable archive.
+The production root and this path load the same v2 runtime. Original v1 remains playable at `/v1/`. The original localStorage key (`tire-ch-v1`) is preserved; v2 uses its own key. `v1/` inside this preview is a playable archive.
 
 ## Play loop
 - Natural assembly milestones: 35, 100, 210 and 360 seconds.
@@ -18,4 +18,4 @@ The stable v1 game at the repository root remains unchanged during this preview.
 ## Verification
 `node --test tests/*.test.js v2/tests/*.test.js` from repository root runs model tests. GitHub Actions runs desktop and Pixel 7–emulated browser regression tests. Those tests are **not** counted as independent gameplay sessions.
 
-The independent playtest ledger is `docs/playtest-ledger.md`. It records actual UI interactions, findings, changes and retests. Development continues until the requested playtest cycle is complete; this preview is not a finished-release claim.
+The independent playtest ledger is `docs/playtest-ledger.md`. It records actual UI interactions, findings, changes and retests. Twenty-five focused independent UI play episodes are documented, including a strict six-minute natural-growth generation. These are not twenty-five full generations. See the ledger for evidence limits.
