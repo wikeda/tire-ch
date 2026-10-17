@@ -26,3 +26,5 @@ test('every road preserves departure and return scenes across repeated trips',()
 test('forest and ridge have genuinely distinct scenes and visible terrain costs',()=>{let a=g.create(0),b=g.create(0);g.startTrip(a,'forest',0);g.startTrip(b,'ridge',0);assert.notEqual(g.event(a).text,g.event(b).text);assert.match(g.event(b).options[1][1],/峠/)});
 test('overheated trip choices show projected damage before selection',()=>{let s=g.create(0);g.startTrip(s,'ridge',0);s.heat=80;assert.match(g.event(s).options[0][1],/耐久−16/)});
 test('parts repair has meaningful comfort advantage over free manual recovery',()=>{let s=g.create(0);s.broken=true;s.parts=5;s.needs.energy=0;g.repair(s,'parts',0);assert.equal(s.needs.health,100);assert.ok(s.needs.energy>=70)});
+test('overcare tells an evolving story rather than repeating identical feedback',()=>{let s=g.create(0);s.needs.clean=100;let a=g.care(s,'wash',0);let b=g.care(s,'wash',5000);assert.notEqual(a.message,b.message)});
+test('unknown inherited command names are rejected',()=>{let s=g.create(0);assert.equal(g.care(s,'constructor',0).ok,false);assert.equal(g.startTrip(s,'__proto__',0).ok,false)});
